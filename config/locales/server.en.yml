@@ -1,0 +1,4 @@
+en:
+  site_settings:
+    discourse_mattermost_api_key: "Secret API key to access Mattermost APIs."
+    discourse_mattermost_server: "URL of the Mattermost server. Make sure to include http(s)://"
