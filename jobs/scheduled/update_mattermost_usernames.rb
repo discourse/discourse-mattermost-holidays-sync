@@ -22,7 +22,7 @@ module Jobs
 
         discourse_user = User.find_by_email(user[:email])
         next unless discourse_user
-        discourse_username = discourse_user.username
+        discourse_username = discourse_user.username_lower
 
         on_holiday = users_on_holiday.include?(discourse_username)
 
