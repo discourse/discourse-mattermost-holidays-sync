@@ -5,7 +5,7 @@ module Jobs
     def execute(args)
       api_key = SiteSetting.discourse_mattermost_api_key
       server = SiteSetting.discourse_mattermost_server
-      users_on_holiday = ::DiscourseSimpleCalendar.users_on_holiday
+      users_on_holiday = ::DiscourseCalendar.users_on_holiday
 
       return if api_key.blank? || server.blank? || users_on_holiday.blank?
 
