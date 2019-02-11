@@ -1,6 +1,6 @@
 module Jobs
   class UpdateMattermostUsernames < Jobs::Scheduled
-    every 1.hour
+    every 10.minutes
 
     def execute(args)
       api_key = SiteSetting.discourse_mattermost_api_key
