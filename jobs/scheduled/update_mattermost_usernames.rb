@@ -7,7 +7,7 @@ module Jobs
       server = SiteSetting.discourse_mattermost_server
       users_on_holiday = ::DiscourseCalendar.users_on_holiday
 
-      return if api_key.blank? || server.blank? || users_on_holiday.blank?
+      return if api_key.blank? || server.blank?
 
       # Fetch all mattermost users
       response = Excon.get("#{server}/api/v4/users", headers: {
