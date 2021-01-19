@@ -1,5 +1,6 @@
 plugins:
   discourse_mattermost_api_key:
     default: ""
+    secret: true
   discourse_mattermost_server:
     default: ""
