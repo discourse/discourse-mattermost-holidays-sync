@@ -22,6 +22,7 @@ module Jobs
       # Loop over mattermost users
       mattermost_users.each do |user|
         discourse_user = User.find_by_email(user[:email])
+
         next unless discourse_user
         discourse_username = discourse_user.username
 
@@ -52,6 +53,7 @@ module Jobs
           status_data = status_json.present? ? JSON.parse(status_json, symbolize_names: true) : nil
           status_emoji = status_data&.[](:emoji)
           status_on_holiday = status_data&.[](:emoji) == SiteSetting.discourse_mattermost_holiday_status_emoji
+          purge_unknown_status = SiteSetting.discourse_mattermost_holiday_status_exclusive
 
           if on_holiday && !status_on_holiday
             Excon.put("#{server}/api/v4/users/#{user[:id]}/status/custom",
@@ -61,7 +63,7 @@ module Jobs
                 text: SiteSetting.discourse_mattermost_holiday_status_text
               }.to_json
             )
-          elsif status_on_holiday || (SiteSetting.discourse_mattermost_holiday_status_exclusive && status_emoji)
+          elsif !on_holiday && (status_on_holiday || (purge_unknown_status && status_emoji))
             Excon.delete("#{server}/api/v4/users/#{user[:id]}/status/custom", headers: headers)
           end
         end

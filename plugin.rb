@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # name: discourse-mattermost-holidays-sync
 # about: Updated mattermost usernames with `-v` for users on holiday
 # version: 0.1
