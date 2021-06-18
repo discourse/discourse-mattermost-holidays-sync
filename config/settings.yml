@@ -4,3 +4,8 @@ plugins:
     secret: true
   discourse_mattermost_server:
     default: ""
+  discourse_mattermost_suffix_usernames: true
+  discourse_mattermost_set_status: true
+  discourse_mattermost_holiday_status_emoji: "palm_tree"
+  discourse_mattermost_holiday_status_text: "On vacation"
+  discourse_mattermost_holiday_status_exclusive: false
