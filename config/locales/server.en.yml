@@ -2,3 +2,8 @@ en:
   site_settings:
     discourse_mattermost_api_key: "Secret API key to access Mattermost APIs."
     discourse_mattermost_server: "URL of the Mattermost server. Make sure to include http(s)://"
+    discourse_mattermost_suffix_usernames: "Add -v to mattermost users on vacation"
+    discourse_mattermost_set_status: "Set status emoji/text for mattermost users on vacation"
+    discourse_mattermost_holiday_status_emoji: "Emoji to use for mattermost vacation status"
+    discourse_mattermost_holiday_status_text: "Text for mattermost vacation status"
+    discourse_mattermost_holiday_status_exclusive: "Remove all non-vacation mattermost statuses"
