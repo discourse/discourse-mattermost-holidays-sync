@@ -16,8 +16,15 @@ module Jobs
       }
 
       # Fetch all mattermost users
-      response = Excon.get("#{server}/api/v4/users", headers: headers)
-      mattermost_users = JSON.parse(response.body, symbolize_names: true)
+      mattermost_users = []
+      params = { per_page: 200, page: 0 }
+      loop do
+        response = Excon.get("#{server}/api/v4/users?#{params.to_query}", headers: headers)
+        this_page_users = JSON.parse(response.body, symbolize_names: true)
+        mattermost_users += this_page_users
+        break if this_page_users.length < params[:per_page]
+        params[:page] += 1
+      end
 
       # Loop over mattermost users
       mattermost_users.each do |user|
