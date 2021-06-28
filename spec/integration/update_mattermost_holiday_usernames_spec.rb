@@ -31,7 +31,7 @@ describe "Mattermost holiday sync" do
     }
 
     let!(:users_stub) {
-      stub_request(:get, "https://chat.example.com/api/v4/users").
+      stub_request(:get, "https://chat.example.com/api/v4/users?page=0&per_page=200").
         with(headers: {
         'Authorization' => 'Bearer abc',
         'Host' => 'chat.example.com'
