@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 # name: discourse-mattermost-holidays-sync
-# about: Updated mattermost usernames with `-v` for users on holiday
+# about: Syncronize discourse-calendar vacation status with Mattermost
 # version: 0.1
 # author: David Taylor
 # url: https://github.com/discourse/discourse-mattermost-holidays-sync
